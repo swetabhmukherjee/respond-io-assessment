@@ -1,12 +1,33 @@
 {
   "name": "respond-io",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend APIs for Note Taking app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint .",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "prettier": "prettier --write .",
+    "start-redis": "redis-server",
+    "start-mysql": "mysqld",
+    "db:migrate": "sequelize db:migrate --url \"mysql://root:password@localhost:3306/respond-io\"",
+    "db:seed": "sequelize db:seed:all"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.5.2",
+    "redis": "^4.6.7",
+    "sequelize": "^6.32.1",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
