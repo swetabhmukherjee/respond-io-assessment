@@ -1,0 +1,40 @@
+# Dependency directories
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Compiled output
+dist/
+build/
+out/
+
+# macOS system files
+.DS_Store
+
+# IDE-specific files (e.g., for VS Code)
+.vscode/
+
+# Miscellaneous
+*.tmp
+*.pid
+*.seed
+*.pid.lock
+
+# Ignore other sensitive or generated files
+config/config.json
+
+# Ignore backup files
+*.bak
+
+# Ignore operating system files
+Thumbs.db
+.DS_Store
+ehthumbs.db
+Icon?
