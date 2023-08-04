@@ -21,9 +21,11 @@ const User = sequelize.define('users', {
   },
   created_by: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
   updated_by: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
   created_at: {
     type: DataTypes.DATE,

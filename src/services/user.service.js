@@ -8,8 +8,9 @@ const {
   decryptToken,
 } = require("../utils/general-utils");
 
-const registerUser = async (user_name, password) => {
+const registerUser = async (user_name, password, authToken) => {
   logger.info("UserService:function register user");
+  const performedBy = await decryptToken(authToken);
   const user = await User.findOne({
     where: {
       user_name: user_name,
@@ -23,8 +24,8 @@ const registerUser = async (user_name, password) => {
   await User.create({
     user_name,
     password_salt: userPassword,
-    created_by: 1234,
-    updated_by: 1234,
+    created_by: performedBy.userId,
+    updated_by: performedBy.userId,
   });
 
   logger.info("User registered successfully:");

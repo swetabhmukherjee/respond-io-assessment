@@ -3,8 +3,9 @@ const logger = require("../utils/logger");
 const { responseWrapper } = require("../utils/general-utils");
 const registerUser = async (req, res) => {
   try {
+    const authToken = req.headers.authorization;
     const { userName, password } = req.body;
-    await userService.registerUser(userName, password);
+    await userService.registerUser(userName, password, authToken);
     res
       .status(201)
       .send(responseWrapper(201, "User registered successfully", null));
