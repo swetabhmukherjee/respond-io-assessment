@@ -29,6 +29,7 @@ out/
 
 # Ignore other sensitive or generated files
 config/config.json
+src/config
 
 # Ignore backup files
 *.bak
