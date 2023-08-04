@@ -33,6 +33,9 @@ const User = sequelize.define('users', {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
   },
+}, 
+{ 
+  timestamps: false 
 });
 
 module.exports = User;
