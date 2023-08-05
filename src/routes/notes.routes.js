@@ -3,8 +3,9 @@ const router = express.Router();
 const notesController = require('../controllers/notes.controller');
 
 // User registration route
+router.get('/', notesController.getAllNotes);
 router.post('/', notesController.createNote);
-router.get('/', notesController.getNotesByUser);
+router.get('/user-notes', notesController.getNotesByUser);
 router.get('/:noteId', notesController.getNoteByNoteId);
 router.put('/:noteId', notesController.updateNote);
 router.delete('/:noteId', notesController.deleteNote);

@@ -1,11 +1,25 @@
 const { Note } = require("../models");
-const {
-  encryptPassword,
-  comparePasswords,
-  generateBearerToken,
-  decryptToken,
-} = require("../utils/general-utils");
+const { decryptToken } = require("../utils/general-utils");
 const logger = require("../utils/logger");
+const Redis = require('redis');
+const redisClient = Redis.createClient();
+require('dotenv').config();
+
+const getAllNotes = async (authToken) => {
+  try {
+    const expirationTime = process.env.DEFAULT_EXPIRATION;
+    const userDetails = await decryptToken(authToken);
+    if (!userDetails) {
+      throw new Error("Unauthorized User");
+    }
+    const notes = await Note.findAll();
+    redisClient.setEx('notes', expirationTime, JSON.stringify(notes))
+    return notes;
+  } catch (error) {
+    logger.error(`Failed to fetch notes! ${error}`);
+    throw new Error(`Failed to fetch notes! ${error}`);
+  }
+};
 
 const createNote = async (noteContent, authToken) => {
   try {
@@ -115,6 +129,7 @@ const deleteNote = async (noteId, authToken) => {
 };
 
 module.exports = {
+  getAllNotes,
   createNote,
   getNotesByUser,
   getNoteByNoteId,
