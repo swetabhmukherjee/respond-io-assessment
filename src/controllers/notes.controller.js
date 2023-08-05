@@ -15,14 +15,61 @@ const createNote = async (req, res) => {
 };
 
 const getNotesByUser = async (req, res) => {
-    try {
-      const authToken = req.headers.authorization;
-      const result = await notesService.getNotesByUser(authToken);
-      res.status(200).send(responseWrapper(200, result, null));
-    } catch (error) {
-      logger.error("Error fetching notes", error);
-      res.status(400).send(responseWrapper(400, null, error.message));
-    }
-  };
+  try {
+    const authToken = req.headers.authorization;
+    const result = await notesService.getNotesByUser(authToken);
+    res.status(200).send(responseWrapper(200, result, null));
+  } catch (error) {
+    logger.error("Error fetching notes", error);
+    res.status(400).send(responseWrapper(400, null, error.message));
+  }
+};
 
-module.exports = { createNote, getNotesByUser };
+const getNoteByNoteId = async (req, res) => {
+  try {
+    const authToken = req.headers.authorization;
+    const { noteId } = req.params;
+    const result = await notesService.getNoteByNoteId(noteId, authToken);
+    res.status(200).send(responseWrapper(200, result, null));
+  } catch (error) {
+    logger.error("Error fetching note", error);
+    res.status(400).send(responseWrapper(400, null, error.message));
+  }
+};
+
+const updateNote = async (req, res) => {
+  try {
+    const authToken = req.headers.authorization;
+    const { noteId } = req.params;
+    const { noteContent } = req.body;
+    const result = await notesService.updateNote(
+      noteId,
+      noteContent,
+      authToken
+    );
+    res.status(200).send(responseWrapper(200, result, null));
+  } catch (error) {
+    logger.error("Error updating note", error);
+    res.status(400).send(responseWrapper(400, null, error.message));
+  }
+};
+
+const deleteNote = async (req, res) => {
+  try {
+    const authToken = req.headers.authorization;
+    const { noteId } = req.params;
+    const result = await notesService.deleteNote(noteId, authToken);
+    res.status(200).send(responseWrapper(200, result, null));
+  } catch (error) {
+    logger.error("Error deleting note", error);
+    res.status(400).send(responseWrapper(400, null, error.message));
+  }
+};
+
+module.exports = {
+  createNote,
+  getNotesByUser,
+  getNoteByNoteId,
+  updateNote,
+  deleteNote,
+};
