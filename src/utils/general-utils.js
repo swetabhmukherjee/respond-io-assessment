@@ -32,19 +32,21 @@ async function generateBearerToken(user) {
 }
 
 async function decryptToken(bearerToken) {
-  try {
-    // Extract the token from the "Bearer" prefix
-    const token = bearerToken.split(" ")[1];
-    const secretKey = process.env.SECRET_KEY;
-
-    // Decode the JWT token
-    const decoded = jwt.verify(token, secretKey);
-    return decoded;
-  } catch (error) {
-    console.error(error);
-    return error;
+    try {
+      // Extract the token from the "Bearer" prefix
+      const token = bearerToken.split(' ')[1];
+      const secretKey = process.env.SECRET_KEY;
+  
+      // Decode the JWT token
+      const decoded = jwt.verify(token, secretKey);
+      return decoded;
+    } catch (error) {
+      console.error(error);
+  
+      // Throw custom "Authentication Failed" error
+      throw new Error('Authentication Failed');
+    }
   }
-}
 
 function responseWrapper(status, data, error){
     if(!error){

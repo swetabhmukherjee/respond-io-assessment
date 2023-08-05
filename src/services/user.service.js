@@ -1,5 +1,4 @@
 const { User } = require("../models");
-const bcrypt = require("bcrypt");
 const logger = require("../utils/logger"); // Adjust the path to your logger.js file
 const {
   encryptPassword,
