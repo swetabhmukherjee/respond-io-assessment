@@ -8,7 +8,7 @@ const redis = require("redis");
     host: 'db',
     port: 6379
   });
-  redisClient.on("Redis error: ", (error) => logger.error(error));
+  redisClient.on("error", (error) => logger.error(error));
   await redisClient.connect();
 })();
 
