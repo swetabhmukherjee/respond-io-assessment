@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "b6d9804b-7070-43b2-8b3d-67d989f35f96",
+		"name": "Notes App APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8434225"
+	},
+	"item": [
+		{
+			"name": "Add User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJOYW1lIjoibmFpbmExIiwiaWF0IjoxNjkxMjU4MjA5LCJleHAiOjE2OTE1MTc0MDl9.mw5sX6vlJ7WdNLrvLiZVethoNu4n4w_KvFlHLkaQe0k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"swetabh1\",\n    \"password\": \"test1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_url}}/api/user/register",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"naina1\",\n    \"password\": \"test1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_url}}/api/user/validate-login",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"validate-login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create note",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJOYW1lIjoic3dldGFiaCIsImlhdCI6MTY5MTIyMTgyOCwiZXhwIjoxNjkxNDgxMDI4fQ.ho6iZt7i2iQzpAdv50OG4gqsZSy5FGTk052dLVUdYVM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"noteContent\": \"Vestibulum at sagittis urna. Nam faucibus turpis feugiat ante convallis, non luctus dui placerat. Integer ipsum augue, cursus eget eleifend mattis, dapibus vitae dui. Phasellus condimentum at ex ac facilisis. Donec tempor pellentesque sem semper egestas. Praesent nec metus quis odio blandit rutrum sed ut tortor. Morbi eget nisl lacus. Pellentesque ornare eros imperdiet vehicula vehicula. Aliquam sem massa, sollicitudin vel pharetra nec, congue et erat. Fusce dapibus augue quis est dapibus lacinia. Vivamus efficitur finibus dui at auctor. Suspendisse eleifend, mi et consequat eleifend, justo libero pharetra est, ac faucibus turpis urna vel metus. Pellentesque venenatis lectus lorem, et consequat quam consequat eu. Donec vel est tempus, fringilla odio at, volutpat odio. Pellentesque nibh velit, sollicitudin sed rutrum et, lobortis at nibh. Sed sit amet dolor nec ligula sodales volutpat.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_url}}/api/notes",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch notes by user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJOYW1lIjoic3dldGFiaCIsImlhdCI6MTY5MTIyMTgyOCwiZXhwIjoxNjkxNDgxMDI4fQ.ho6iZt7i2iQzpAdv50OG4gqsZSy5FGTk052dLVUdYVM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host_url}}/api/notes",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch specific note",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJOYW1lIjoic3dldGFiaCIsImlhdCI6MTY5MTIyMTgyOCwiZXhwIjoxNjkxNDgxMDI4fQ.ho6iZt7i2iQzpAdv50OG4gqsZSy5FGTk052dLVUdYVM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"noteContent\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin sagittis dui eu vehicula. Aenean viverra, odio nec luctus sodales, risus nunc finibus enim, eu hendrerit leo metus et justo. Donec venenatis enim et pharetra dapibus. Sed a accumsan nisi, id maximus velit. Aenean ac dignissim sem, a tincidunt ipsum. Ut volutpat orci nec ipsum auctor vehicula. Quisque egestas lectus vel ligula tincidunt dignissim. Sed fermentum massa vitae dui dapibus, tincidunt molestie sapien viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec diam et justo consequat semper. Aliquam non eros volutpat, tempus urna sed, pretium lorem.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_url}}/api/notes/3",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"api",
+						"notes",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update specific note",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJOYW1lIjoic3dldGFiaCIsImlhdCI6MTY5MTIyMTgyOCwiZXhwIjoxNjkxNDgxMDI4fQ.ho6iZt7i2iQzpAdv50OG4gqsZSy5FGTk052dLVUdYVM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"noteContent\": \"updated note\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_url}}/api/notes/1",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"api",
+						"notes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete specific note",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJOYW1lIjoic3dldGFiaCIsImlhdCI6MTY5MTIyMTgyOCwiZXhwIjoxNjkxNDgxMDI4fQ.ho6iZt7i2iQzpAdv50OG4gqsZSy5FGTk052dLVUdYVM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"noteContent\": \"updated note1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_url}}/api/notes/1",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"api",
+						"notes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all notes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJOYW1lIjoic3dldGFiaCIsImlhdCI6MTY5MTIyMTgyOCwiZXhwIjoxNjkxNDgxMDI4fQ.ho6iZt7i2iQzpAdv50OG4gqsZSy5FGTk052dLVUdYVM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host_url}}/api/notes",
+					"host": [
+						"{{host_url}}"
+					],
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "expired_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiaWF0IjoxNjg1OTYwODQ2LCJleHAiOjE2ODYxMzM2NDZ9.c-48TYjxkxqzEHG92sIVyGeZGkKX-wKTgQR9LNuH6Ac",
+			"type": "string"
+		}
+	]
+}
