@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db.config'); // Assuming you have set up the Sequelize instance in dbConfig.js
-const User = require('./user.model'); // Assuming you have a User model defined in user.js
+const sequelize = require('../config/db.config'); 
+const User = require('./user.model'); 
 
 const Note = sequelize.define(
   'Note',
@@ -42,9 +42,9 @@ const Note = sequelize.define(
     },
   },
   {
-    timestamps: false, // Disable Sequelize's default timestamps (createdAt and updatedAt)
-    underscored: true, // Use snake_case for column names (e.g., created_at instead of createdAt)
-    tableName: 'notes', // Set the actual table name if it's different from the model name in plural form
+    timestamps: false, 
+    underscored: true, 
+    tableName: 'notes',
   }
 );
 

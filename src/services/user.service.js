@@ -1,5 +1,5 @@
 const { User } = require("../models");
-const logger = require("../utils/logger"); // Adjust the path to your logger.js file
+const logger = require("../utils/logger");
 const {
   encryptPassword,
   comparePasswords,

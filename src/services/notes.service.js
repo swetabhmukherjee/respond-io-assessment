@@ -37,7 +37,6 @@ const createNote = async (noteContent, authToken) => {
 
 const getNotesByUser = async (authToken) => {
   try {
-    // Assuming you have added the user_id to the request object during authentication
     const userDetails = await decryptToken(authToken);
     if (!userDetails) {
       throw new Error("User does not exists!");
@@ -57,7 +56,6 @@ const getNotesByUser = async (authToken) => {
 
 const getNoteByNoteId = async (noteId, authToken) => {
   try {
-    // Assuming you have added the user_id to the request object during authentication
     const userDetails = await decryptToken(authToken);
     if (!userDetails) {
       throw new Error("User does not exists!");
@@ -89,7 +87,6 @@ const updateNote = async (noteId, noteContent, authToken) => {
     if (!note) {
       throw new Error("Note not found");
     }
-    // Update the note content and save it to the database
     note.note_content = noteContent;
     await note.save();
 
@@ -114,7 +111,6 @@ const deleteNote = async (noteId, authToken) => {
       throw new Error("Note not found");
     }
 
-    // Delete the note from the database
     await note.destroy();
 
     return "Note deleted successfully";
