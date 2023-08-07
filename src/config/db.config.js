@@ -11,7 +11,7 @@ const env = process.env.NODE_ENV || 'development';
 
 // Use environment variables directly for database configuration
 const sequelize = new Sequelize(databaseName, username, password, {
-  host: host,
+  host: 'mysql',
   dialect: 'mysql',
   logging: (log) => logger.info(log),
 });

@@ -4,8 +4,11 @@ const { responseWrapper } = require("../utils/general-utils");
 const redis = require("redis");
 
 (async () => {
-  redisClient = redis.createClient();
-  redisClient.on("error", (error) => logger.error(error));
+  let redisClient = redis.createClient({
+    host: 'db',
+    port: 6379
+  });
+  redisClient.on("Redis error: ", (error) => logger.error(error));
   await redisClient.connect();
 })();
 

@@ -90,18 +90,6 @@ npm start
 
 The application will be accessible at `http://localhost:3000`.
 
-## Testing the Application
-
-To run the unit tests for the application, use the following command:
-
-```bash
-
-npm test
-
-```
-
-The tests cover critical components and business logic to ensure the application behaves as expected.
-
 ## Design Pattern
 
 The application follows the Model-View-Controller (MVC) design pattern:
@@ -111,9 +99,3 @@ The application follows the Model-View-Controller (MVC) design pattern:
 2\. **View**: Represents the user interface, but in this case, it is not implemented explicitly as the application is an API.
 
 3\. **Controller**: Acts as the middle layer between the Model and View. It handles incoming HTTP requests, processes data, and sends appropriate responses.
-
-## Conclusion
-
-You have successfully set up, run, and tested the Node.js application with MySQL and Redis support. The application follows the MVC design pattern, promoting a clear separation of concerns and maintainability.
-
-For any further questions or assistance, please refer to the application's code or reach out to the development team. Happy coding!
