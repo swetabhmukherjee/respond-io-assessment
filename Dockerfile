@@ -17,5 +17,8 @@ RUN npm install
 # Copy the rest of the application files
 COPY . .
 
+# Install sequelize globally inside the container
+RUN npm install -g sequelize-cli
+
 # Start the application using the wait-for-it.sh script
 CMD ["/usr/wait-for-it.sh", "db:3306", "--", "node", "app.js"]
